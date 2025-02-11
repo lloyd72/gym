@@ -169,7 +169,7 @@ ol {
 	font-size: 14px;
 	padding: 17px 30px 16px;
 	color: #ffffff;
-	background: #f36100;
+	background: #71C946;
 	line-height: normal;
 	letter-spacing: 1px;
 	text-transform: uppercase;
@@ -183,8 +183,8 @@ ol {
 }
 
 .primary-btn.btn-normal:hover {
-	background: #f36100;
-	border-color: #f36100;
+	background: #71C946;
+	border-color: #71C946;
 }
 
 /* Preloder */
@@ -386,7 +386,7 @@ ol {
 }
 
 .nav-menu ul li.active>a {
-	color: #f36100;
+	color: #71C946;
 }
 
 .nav-menu ul li.active>a:after {
@@ -394,7 +394,7 @@ ol {
 }
 
 .nav-menu ul li:hover>a {
-	color: #f36100;
+	color: #71C946;
 }
 
 .nav-menu ul li:hover>a:after {
@@ -427,7 +427,7 @@ ol {
 	top: 22px;
 	height: 1px;
 	width: 100%;
-	background: #f36100;
+	background: #71C946;
 	content: "";
 	-webkit-transform: rotate(-20deg);
 	-ms-transform: rotate(-20deg);
@@ -572,7 +572,7 @@ ol {
 }
 
 .hs-slider .hs-item .hi-text h1 strong {
-	color: #f36100;
+	color: #71C946;
 }
 
 .hs-slider .hs-item .hi-text .primary-btn {
@@ -596,7 +596,7 @@ ol {
 }
 
 .cs-item:hover span {
-	background: #f36100;
+	background: #71C946;
 	color: #ffffff;
 }
 
@@ -606,7 +606,7 @@ ol {
 	background: rgba(255, 255, 255, 0.1);
 	border-radius: 50%;
 	display: inline-block;
-	color: #f36100;
+	color: #71C946;
 	line-height: 90px;
 	text-align: center;
 	-webkit-transition: all 0.3s;
@@ -667,7 +667,7 @@ ol {
 }
 
 .class-item .ci-text span {
-	color: #f36100;
+	color: #71C946;
 	font-size: 12px;
 	text-transform: uppercase;
 	font-weight: 700;
@@ -749,7 +749,7 @@ ol {
 	display: inline-block;
 	height: 70px;
 	width: 70px;
-	background: #f36100;
+	background: #71C946;
 	border-radius: 50%;
 	line-height: 70px;
 	text-align: center;
@@ -802,7 +802,7 @@ ol {
 }
 
 .ps-item:hover .primary-btn.pricing-btn {
-	background: #f36100;
+	background: #71C946;
 }
 
 .ps-item:hover .thumb-icon {
@@ -829,7 +829,7 @@ ol {
 
 .ps-item .pi-price h2 {
 	font-size: 60px;
-	color: #f36100;
+	color: #71C946;
 	font-weight: 600;
 }
 
@@ -864,7 +864,7 @@ ol {
 
 .ps-item .thumb-icon {
 	font-size: 48px;
-	color: #f36100;
+	color: #71C946;
 	position: absolute;
 	left: 50px;
 	bottom: 120px;
@@ -911,7 +911,7 @@ ol {
 
 .gallery .gs-item .thumb-icon {
 	font-size: 48px;
-	color: #f36100;
+	color: #71C946;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -978,7 +978,7 @@ ol {
 
 .primary-btn.appoinment-btn {
 	background: transparent;
-	border: 2px solid #f36100;
+	border: 2px solid #71C946;
 	float: right;
 	margin-top: 10px;
 }
