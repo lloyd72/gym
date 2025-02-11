@@ -11,9 +11,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             height: 100vh;
             margin: 0;
             padding: 20px;
+            box-sizing: border-box;
         }
         .login-container {
             background-color: #fff;
@@ -33,22 +35,20 @@
             font-size: 14px;
             color: #555;
         }
-        .login-container input[type="text"], .login-container input[type="password"] {
+        .login-container input[type="text"], .login-container input[type="password"], .login-container input[type="submit"] {
             width: 100%;
             padding: 15px;
             margin: 15px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 16px;
+            box-sizing: border-box;
         }
         .login-container input[type="submit"] {
-            width: 100%;
-            padding: 15px;
             background-color: #71C946;
             border: none;
             color: #fff;
             cursor: pointer;
-            border-radius: 5px;
             font-size: 18px;
             margin-top: 20px;
         }
@@ -68,7 +68,7 @@
             text-decoration: underline;
         }
         .copyright {
-            margin-top: 30px;
+            margin-top: 20px;
             text-align: center;
             font-size: 14px;
             color: #aaa;
@@ -92,10 +92,10 @@
         <div class="new-account">
             <p>Don't have an account? <a href="register.html">Create a new account</a></p>
         </div>
+    </div>
 
-        <div class="copyright">
-            &copy; 2025 The Muscle Studio. All rights reserved.
-        </div>
+    <div class="copyright">
+        &copy; 2025 The Muscle Studio. All rights reserved.
     </div>
 
 </body>
