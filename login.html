@@ -13,46 +13,56 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            padding: 20px;
         }
         .login-container {
             background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            width: 350px;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+            width: 400px;
         }
         .login-container h1 {
             text-align: center;
             color: #333;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        .login-container label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #555;
         }
         .login-container input[type="text"], .login-container input[type="password"] {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
+            padding: 15px;
+            margin: 15px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
+            font-size: 16px;
         }
         .login-container input[type="submit"] {
             width: 100%;
-            padding: 10px;
+            padding: 15px;
             background-color: #71C946;
             border: none;
             color: #fff;
             cursor: pointer;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 18px;
+            margin-top: 20px;
         }
         .login-container input[type="submit"]:hover {
             background-color: #28a745;
         }
         .login-container .new-account {
             text-align: center;
-            margin-top: 15px;
+            margin-top: 30px;
         }
         .login-container .new-account a {
             text-decoration: none;
             color: #28a745;
+            font-size: 16px;
         }
         .login-container .new-account a:hover {
             text-decoration: underline;
@@ -60,7 +70,7 @@
         .copyright {
             margin-top: 30px;
             text-align: center;
-            font-size: 12px;
+            font-size: 14px;
             color: #aaa;
         }
     </style>
@@ -72,17 +82,20 @@
         <form action="login.php" method="POST">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            
             <label for="password">Password</label>
             <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            
             <input type="submit" value="Sign In">
         </form>
+
         <div class="new-account">
             <p>Don't have an account? <a href="register.html">Create a new account</a></p>
         </div>
-    </div>
 
-    <div class="copyright">
-        &copy; 2025 The Muscle Studio. All rights reserved.
+        <div class="copyright">
+            &copy; 2025 The Muscle Studio. All rights reserved.
+        </div>
     </div>
 
 </body>
