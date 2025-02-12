@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login/Signup</title>
+    <title>Login</title>
 
     <!-- Link to your custom CSS file -->
     <link rel="stylesheet" href="css/style.css">
@@ -11,7 +11,7 @@
     <!-- Firebase initialization script -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-analytics.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyC8HwlXcTf5iWOSmTDqUAvjrbLjZWXrCPA",
@@ -23,8 +23,26 @@
             measurementId: "G-T3GBTYMG95"
         };
 
+        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+
+        // Handle Login
+        document.querySelector('.login').addEventListener('click', function() {
+            const email = document.querySelector('#login-form input[type="text"]').value;
+            const password = document.querySelector('#login-form input[type="password"]').value;
+            
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Successfully logged in
+                    window.location.href = "dashboard.html"; // Redirect to dashboard after successful login
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    alert(`Error: ${errorMessage}`);
+                });
+        });
     </script>
 </head>
 <body>
@@ -40,7 +58,7 @@
                 <input type="text" placeholder="Enter email or username" required />
                 <input type="password" placeholder="Enter password" required />
                 <button type="button" class="btn login">login</button>
-                <p><a href="javascript:void(0)">Forgotten account</a></p>
+                <p><a href="javascript:void(0)">Forgotten account?</a></p>
                 <hr />
             </form>
         </div>
@@ -58,9 +76,6 @@
             </form>
         </div>
     </div>
-
-    <!-- Link to your custom JavaScript file -->
-    <script src="js/scripts.js"></script>
 
 </body>
 </html>
