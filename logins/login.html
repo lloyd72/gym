@@ -44,38 +44,149 @@
                 });
         });
     </script>
+
+    <!-- Simple and clean CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-modal {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-modal input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .form-modal button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .form-modal button:hover {
+            background-color: #218838;
+        }
+
+        .form-modal p {
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .form-modal p a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .form-toggle {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-toggle button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+
+        .form-toggle button:hover {
+            background-color: #0056b3;
+        }
+
+        .form-toggle button.active {
+            background-color: #0056b3;
+        }
+
+        #signup-form, #login-form {
+            display: none;
+        }
+
+        #login-form.active, #signup-form.active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
 
     <div class="form-modal">
+        <h2>Login</h2>
+
         <div class="form-toggle">
-            <button id="login-toggle" onclick="toggleLogin()">log in</button>
-            <button id="signup-toggle" onclick="toggleSignup()">sign up</button>
+            <button id="login-toggle" class="active" onclick="toggleLogin()">Log In</button>
+            <button id="signup-toggle" onclick="toggleSignup()">Sign Up</button>
         </div>
 
-        <div id="login-form">
+        <div id="login-form" class="active">
             <form>
                 <input type="text" placeholder="Enter email or username" required />
                 <input type="password" placeholder="Enter password" required />
-                <button type="button" class="btn login">login</button>
+                <button type="button" class="btn login">Login</button>
                 <p><a href="javascript:void(0)">Forgotten account?</a></p>
                 <hr />
             </form>
         </div>
 
-        <div id="signup-form" style="display: none;">
+        <div id="signup-form">
             <form>
                 <input type="email" placeholder="Enter your email" required />
                 <input type="text" placeholder="Choose username" required />
                 <input type="password" placeholder="Create password" required />
-                <button type="button" class="btn signup">create account</button>
+                <button type="button" class="btn signup">Create Account</button>
                 <p>Clicking <strong>create account</strong> means that you agree to our 
-                    <a href="javascript:void(0)">terms of services</a>.
+                    <a href="javascript:void(0)">terms of service</a>.
                 </p>
                 <hr />
             </form>
         </div>
     </div>
+
+    <script>
+        function toggleLogin() {
+            document.getElementById('login-form').classList.add('active');
+            document.getElementById('signup-form').classList.remove('active');
+            document.getElementById('login-toggle').classList.add('active');
+            document.getElementById('signup-toggle').classList.remove('active');
+        }
+
+        function toggleSignup() {
+            document.getElementById('signup-form').classList.add('active');
+            document.getElementById('login-form').classList.remove('active');
+            document.getElementById('signup-toggle').classList.add('active');
+            document.getElementById('login-toggle').classList.remove('active');
+        }
+    </script>
 
 </body>
 </html>
