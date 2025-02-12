@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <!-- Firebase initialization script -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyC8HwlXcTf5iWOSmTDqUAvjrbLjZWXrCPA",
+            authDomain: "loginapp-8d0ac.firebaseapp.com",
+            projectId: "loginapp-8d0ac",
+            storageBucket: "loginapp-8d0ac.firebasestorage.app",
+            messagingSenderId: "81023835707",
+            appId: "1:81023835707:web:e71e35329a3f8bbdc7861e",
+            measurementId: "G-T3GBTYMG95"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Check if the user is authenticated
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // User is logged in, show dashboard
+                document.getElementById('user-info').innerHTML = `Welcome, ${user.email}`;
+                document.getElementById('logout-btn').style.display = 'block';  // Show logout button
+            } else {
+                // User is not logged in, redirect to login page
+                window.location.href = "login.html";
+            }
+        });
+
+        // Logout function
+        function logout() {
+            auth.signOut()
+                .then(() => {
+                    window.location.href = "login.html"; // Redirect to login page after logout
+                })
+                .catch((error) => {
+                    alert("Error: " + error.message);
+                });
+        }
+    </script>
+</head>
+<body>
+
+    <div id="dashboard">
+        <h1>Welcome to your Dashboard</h1>
+        <p id="user-info">Loading user data...</p>
+        <button id="logout-btn" style="display: none;" onclick="logout()">Logout</button>
+    </div>
+
+</body>
+</html>
