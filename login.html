@@ -8,13 +8,12 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
             height: 100vh;
-            margin: 0;
-            padding: 20px;
             box-sizing: border-box;
         }
         .login-container {
@@ -24,11 +23,16 @@
             box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
             width: 400px;
             max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 80%;
+            box-sizing: border-box;
         }
         .login-container h1 {
             text-align: center;
             color: #333;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
         .login-container label {
             display: block;
@@ -51,14 +55,13 @@
             color: #fff;
             cursor: pointer;
             font-size: 18px;
-            margin-top: 20px;
         }
         .login-container input[type="submit"]:hover {
             background-color: #28a745;
         }
         .login-container .new-account {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 20px;
         }
         .login-container .new-account a {
             text-decoration: none;
@@ -79,7 +82,8 @@
         @media (max-width: 768px) {
             .login-container {
                 padding: 30px;
-                width: 100%;
+                width: 90%;
+                height: auto;
             }
             .login-container input[type="text"], .login-container input[type="password"], .login-container input[type="submit"] {
                 padding: 12px;
@@ -90,6 +94,8 @@
         @media (max-width: 480px) {
             .login-container {
                 padding: 20px;
+                width: 90%;
+                height: auto;
             }
             .login-container h1 {
                 font-size: 24px;
@@ -107,10 +113,10 @@
     <div class="login-container">
         <h1>The Muscle Studio</h1>
         <form action="login.php" method="POST">
-            <label for="username">Username</label>
+            <label for="username">Username <span style="color: red;">*</span></label>
             <input type="text" id="username" name="username" placeholder="Enter your username" required>
             
-            <label for="password">Password</label>
+            <label for="password">Password <span style="color: red;">*</span></label>
             <input type="password" id="password" name="password" placeholder="Enter your password" required>
             
             <input type="submit" value="Sign In">
