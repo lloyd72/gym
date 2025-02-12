@@ -7,6 +7,25 @@
 
     <!-- Link to your custom CSS file -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Firebase initialization script -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-analytics.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyC8HwlXcTf5iWOSmTDqUAvjrbLjZWXrCPA",
+            authDomain: "loginapp-8d0ac.firebaseapp.com",
+            projectId: "loginapp-8d0ac",
+            storageBucket: "loginapp-8d0ac.firebasestorage.app",
+            messagingSenderId: "81023835707",
+            appId: "1:81023835707:web:e71e35329a3f8bbdc7861e",
+            measurementId: "G-T3GBTYMG95"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
 </head>
 <body>
 
