@@ -1,134 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>The Muscle Studio - Sign In</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
-            margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
-        }
+<div class="form-modal">
+    
+    <div class="form-toggle">
+        <button id="login-toggle" onclick="toggleLogin()">log in</button>
+        <button id="signup-toggle" onclick="toggleSignup()">sign up</button>
+    </div>
 
-        .login-container {
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
-            width: 400px;
-            box-sizing: border-box;
-        }
+    <div id="login-form">
+        <form>
+            <input type="text" placeholder="Enter email or username"/>
+            <input type="password" placeholder="Enter password"/>
+            <button type="button" class="btn login">login</button>
+            <p><a href="javascript:void(0)">Forgotten account</a></p>
+            <hr/>
 
-        .login-container h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 40px;
-        }
-
-        .login-container label {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 14px;
-            color: #555;
-        }
-
-        .login-container input[type="text"], .login-container input[type="password"], .login-container input[type="submit"] {
-            width: 100%;
-            padding: 15px;
-            margin: 15px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-
-        .login-container input[type="submit"] {
-            background-color: #71C946;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-            font-size: 18px;
-            margin-top: 20px;
-        }
-
-        .login-container input[type="submit"]:hover {
-            background-color: #28a745;
-        }
-
-        .login-container .new-account {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .login-container .new-account a {
-            text-decoration: none;
-            color: #28a745;
-            font-size: 16px;
-        }
-
-        .login-container .new-account a:hover {
-            text-decoration: underline;
-        }
-
-        .copyright {
-            margin-top: 20px;
-            text-align: center;
-            font-size: 14px;
-            color: #aaa;
-        }
-
-        /* Media queries for smaller devices */
-        @media screen and (max-width: 768px) {
-            .login-container {
-                width: 90%;
-                padding: 30px;
-            }
-            .login-container h1 {
-                font-size: 24px;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .login-container {
-                width: 100%;
-                padding: 20px;
-            }
-            .login-container h1 {
-                font-size: 20px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="login-container">
-        <h1>The Muscle Studio</h1>
-        <form action="login.php" method="POST">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" placeholder="Enter your username" required>
-            
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password" required>
-            
-            <input type="submit" value="Sign In">
         </form>
-
-        <div class="new-account">
-            <p>Don't have an account? <a href="register.html">Create a new account</a></p>
-        </div>
     </div>
 
-    <div class="copyright">
-        &copy; 2025 The Muscle Studio. All rights reserved.
+    <div id="signup-form">
+        <form>
+            <input type="email" placeholder="Enter your email"/>
+            <input type="text" placeholder="Choose username"/>
+            <input type="password" placeholder="Create password"/>
+            <button type="button" class="btn signup">create account</button>
+            <p>Clicking <strong>create account</strong> means that you are agree to our <a href="javascript:void(0)">terms of services</a>.</p>
+            <hr/>
+           
+        </form>
     </div>
 
-</body>
-</html>
+</div>
