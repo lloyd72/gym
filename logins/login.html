@@ -7,7 +7,8 @@
 
     <!-- Link to your custom CSS file -->
     <link rel="stylesheet" href="css/style.css">
-
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Quicksand" rel="stylesheet">
+    
     <!-- Firebase initialization script -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
@@ -44,99 +45,6 @@
                 });
         });
     </script>
-
-    <!-- Simple and clean CSS -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .form-modal {
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            width: 100%;
-            max-width: 400px;
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .form-modal input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-
-        .form-modal button {
-            width: 100%;
-            padding: 10px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .form-modal button:hover {
-            background-color: #218838;
-        }
-
-        .form-modal p {
-            text-align: center;
-            font-size: 14px;
-        }
-
-        .form-modal p a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        .form-toggle {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .form-toggle button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            margin: 0 10px;
-        }
-
-        .form-toggle button:hover {
-            background-color: #0056b3;
-        }
-
-        .form-toggle button.active {
-            background-color: #0056b3;
-        }
-
-        #signup-form, #login-form {
-            display: none;
-        }
-
-        #login-form.active, #signup-form.active {
-            display: block;
-        }
-    </style>
 </head>
 <body>
 
