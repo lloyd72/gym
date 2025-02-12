@@ -1,4 +1,5 @@
 // Firebase imports
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
 
 // Firebase config and initialization
@@ -17,36 +18,36 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 // Toggle to Signup form
-function toggleSignup(){
-   document.getElementById("login-toggle").style.backgroundColor="#fff";
-   document.getElementById("login-toggle").style.color="#222";
-   document.getElementById("signup-toggle").style.backgroundColor="#71C946";
-   document.getElementById("signup-toggle").style.color="#fff";
-   document.getElementById("login-form").style.display="none";
-   document.getElementById("signup-form").style.display="block";
+function toggleSignup() {
+   document.getElementById("login-toggle").style.backgroundColor = "#fff";
+   document.getElementById("login-toggle").style.color = "#222";
+   document.getElementById("signup-toggle").style.backgroundColor = "#71C946";
+   document.getElementById("signup-toggle").style.color = "#fff";
+   document.getElementById("login-form").style.display = "none";
+   document.getElementById("signup-form").style.display = "block";
 }
 
 // Toggle to Login form
-function toggleLogin(){
-   document.getElementById("login-toggle").style.backgroundColor="#71C946";
-   document.getElementById("login-toggle").style.color="#fff";
-   document.getElementById("signup-toggle").style.backgroundColor="#fff";
-   document.getElementById("signup-toggle").style.color="#222";
-   document.getElementById("signup-form").style.display="none";
-   document.getElementById("login-form").style.display="block";
+function toggleLogin() {
+   document.getElementById("login-toggle").style.backgroundColor = "#71C946";
+   document.getElementById("login-toggle").style.color = "#fff";
+   document.getElementById("signup-toggle").style.backgroundColor = "#fff";
+   document.getElementById("signup-toggle").style.color = "#222";
+   document.getElementById("signup-form").style.display = "none";
+   document.getElementById("login-form").style.display = "block";
 }
 
 // Handle Login
-document.querySelector('.login').addEventListener('click', function() {
+document.querySelector('.login').addEventListener('click', function () {
    const email = document.querySelector('#login-form input[type="text"]').value;
    const password = document.querySelector('#login-form input[type="password"]').value;
-   
+
    signInWithEmailAndPassword(auth, email, password)
        .then((userCredential) => {
            // Logged in successfully
            const user = userCredential.user;
            alert('Login successful!');
-           // Redirect or perform other actions
+           window.location.href = "dashboard.html"; // Redirect to your dashboard or another page
        })
        .catch((error) => {
            const errorCode = error.code;
@@ -56,17 +57,16 @@ document.querySelector('.login').addEventListener('click', function() {
 });
 
 // Handle Signup
-document.querySelector('.signup').addEventListener('click', function() {
+document.querySelector('.signup').addEventListener('click', function () {
    const email = document.querySelector('#signup-form input[type="email"]').value;
-   const username = document.querySelector('#signup-form input[type="text"]').value;
    const password = document.querySelector('#signup-form input[type="password"]').value;
-   
+
    createUserWithEmailAndPassword(auth, email, password)
        .then((userCredential) => {
            // Signed up successfully
            const user = userCredential.user;
            alert('Account created successfully!');
-           // Redirect or perform other actions
+           window.location.href = "login.html"; // Redirect to login page after signup
        })
        .catch((error) => {
            const errorCode = error.code;
