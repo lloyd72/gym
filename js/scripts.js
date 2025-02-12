@@ -1,7 +1,7 @@
 <!-- Include Firebase imports -->
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
 
     // Firebase config and initialization
     const firebaseConfig = {
@@ -26,6 +26,7 @@
         document.getElementById("signup-toggle").style.color = "#fff";
         document.getElementById("login-form").style.display = "none";
         document.getElementById("signup-form").style.display = "block";
+        document.getElementById("forgot-password-form").style.display = "none";
     }
 
     // Toggle to Login form
@@ -36,6 +37,14 @@
         document.getElementById("signup-toggle").style.color = "#222";
         document.getElementById("signup-form").style.display = "none";
         document.getElementById("login-form").style.display = "block";
+        document.getElementById("forgot-password-form").style.display = "none";
+    }
+
+    // Toggle to Forgot Password form
+    function toggleForgotPassword() {
+        document.getElementById("login-form").style.display = "none";
+        document.getElementById("signup-form").style.display = "none";
+        document.getElementById("forgot-password-form").style.display = "block";
     }
 
     // Handle Login
@@ -74,6 +83,27 @@
                 const user = userCredential.user;
                 alert('Account created successfully!');
                 window.location.href = "login.html"; // Redirect to login page after signup
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(`Error: ${errorMessage}`);
+            });
+    });
+
+    // Handle Forgot Password
+    document.querySelector('.forgot-password').addEventListener('click', function () {
+        const email = document.querySelector('#forgot-password-form input[type="email"]').value;
+
+        if (email === "") {
+            alert("Please enter your email.");
+            return;
+        }
+
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                alert('Password reset email sent. Please check your inbox.');
+                window.location.href = "login.html"; // Redirect to login page after password reset
             })
             .catch((error) => {
                 const errorCode = error.code;
