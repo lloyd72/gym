@@ -3,6 +3,7 @@ import {
     getAuth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
+    sendPasswordResetEmail,
 } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
 
 // Firebase configuration
@@ -27,6 +28,7 @@ const loginError = document.getElementById("loginError");
 const signUpError = document.getElementById("signUpError");
 const showSignUp = document.getElementById("showSignUp");
 const showLogin = document.getElementById("showLogin");
+const forgotPassword = document.getElementById("forgotPassword");
 const loginFormContainer = document.getElementById("loginFormContainer");
 const signUpFormContainer = document.getElementById("signUpFormContainer");
 
@@ -54,17 +56,22 @@ loginForm.addEventListener("submit", (e) => {
             // Signed in
             const user = userCredential.user;
             alert("Login successful!");
-            console.log("Logged in user:", user);
-            // Redirect or perform other actions here
+            window.location.href = "dashboard.html"; // Redirect to dashboard
         })
         .catch((error) => {
-            loginError.textContent = error.message;
+            // Custom error message
+            if (error.code === "auth/invalid-credential") {
+                loginError.textContent = "Incorrect email or password.";
+            } else {
+                loginError.textContent = error.message.replace("Firebase: ", "");
+            }
         });
 });
 
-// Sign Up with Email and Password
+// Sign Up with Name, Email, and Password
 signUpForm.addEventListener("submit", (e) => {
     e.preventDefault();
+    const name = signUpForm.signUpName.value;
     const email = signUpForm.signUpEmail.value;
     const password = signUpForm.signUpPassword.value;
 
@@ -73,10 +80,26 @@ signUpForm.addEventListener("submit", (e) => {
             // Signed up
             const user = userCredential.user;
             alert("Sign up successful!");
-            console.log("Signed up user:", user);
-            // Redirect or perform other actions here
+            // You can save the user's name to Firebase Firestore or Realtime Database here
+            window.location.href = "dashboard.html"; // Redirect to dashboard
         })
         .catch((error) => {
-            signUpError.textContent = error.message;
+            signUpError.textContent = error.message.replace("Firebase: ", "");
         });
+});
+
+// Forgot Password
+forgotPassword.addEventListener("click", (e) => {
+    e.preventDefault();
+    const email = prompt("Please enter your email address:");
+
+    if (email) {
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                alert("Password reset email sent. Check your inbox.");
+            })
+            .catch((error) => {
+                alert(error.message.replace("Firebase: ", ""));
+            });
+    }
 });
