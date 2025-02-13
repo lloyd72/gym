@@ -188,16 +188,14 @@
                         <h2>CALCULATE YOUR BMI</h2>
                     </div>
                     <div class="chart-calculate-form">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
-                            viverra maecenas accumsan lacus vel facilisis.</p>
-                        <form action="#">
+                        <p id="bmi-result-placeholder"><strong>Result:<strong></strong></p>
+                        <form id="bmi-form">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <input type="text" placeholder="Height / cm">
+                                    <input type="text" id="height" placeholder="Height / cm">
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="text" placeholder="Weight / kg">
+                                    <input type="text" id="weight" placeholder="Weight / kg">
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="text" placeholder="Age">
@@ -334,7 +332,6 @@
     <!-- Search model end -->
 
     <!-- Js Plugins -->
-    <script src="js/bmi.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>
@@ -344,8 +341,52 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 
+    <!-- BMI Calculator Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const bmiForm = document.getElementById('bmi-form');
 
+            if (bmiForm) {
+                bmiForm.addEventListener('submit', function(event) {
+                    event.preventDefault(); // Prevent form submission
 
+                    // Get input values
+                    const height = parseFloat(document.getElementById('height').value) / 100; // Convert cm to meters
+                    const weight = parseFloat(document.getElementById('weight').value);
+
+                    // Validate inputs
+                    if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
+                        alert("Please enter valid height and weight values.");
+                        return;
+                    }
+
+                    // Calculate BMI
+                    const bmi = (weight / (height * height)).toFixed(2);
+
+                    // Determine BMI category
+                    let category = '';
+                    if (bmi < 18.5) {
+                        category = 'Underweight';
+                    } else if (bmi >= 18.5 && bmi <= 24.9) {
+                        category = 'Healthy';
+                    } else if (bmi >= 25.0 && bmi <= 29.9) {
+                        category = 'Overweight';
+                    } else if (bmi >= 30.0) {
+                        category = 'Obese';
+                    }
+
+                    // Update the placeholder text with the BMI result
+                    const placeholderText = document.getElementById('bmi-result-placeholder');
+                    if (placeholderText) {
+                        placeholderText.innerHTML = `
+                            Your BMI is: <strong>${bmi}</strong><br>
+                            Category: <strong>${category}</strong>
+                        `;
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
