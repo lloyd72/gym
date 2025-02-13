@@ -3,98 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-
-    <!-- Link to your custom CSS file -->
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Quicksand" rel="stylesheet">
-    
-    <!-- Firebase initialization script -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyC8HwlXcTf5iWOSmTDqUAvjrbLjZWXrCPA",
-            authDomain: "loginapp-8d0ac.firebaseapp.com",
-            projectId: "loginapp-8d0ac",
-            storageBucket: "loginapp-8d0ac.firebasestorage.app",
-            messagingSenderId: "81023835707",
-            appId: "1:81023835707:web:e71e35329a3f8bbdc7861e",
-            measurementId: "G-T3GBTYMG95"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-
-        // Handle Login
-        document.querySelector('.login').addEventListener('click', function() {
-            const email = document.querySelector('#login-form input[type="text"]').value;
-            const password = document.querySelector('#login-form input[type="password"]').value;
-            
-            signInWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                    // Successfully logged in
-                    window.location.href = "dashboard.html"; // Redirect to dashboard after successful login
-                })
-                .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    alert(`Error: ${errorMessage}`);
-                });
-        });
-    </script>
+    <title>Login and Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <div class="form-modal">
-        <h2>Login</h2>
-
-        <div class="form-toggle">
-            <button id="login-toggle" class="active" onclick="toggleLogin()">Log In</button>
-            <button id="signup-toggle" onclick="toggleSignup()">Sign Up</button>
+    <div class="auth-container">
+        <!-- Login Form -->
+        <div class="form-container" id="loginFormContainer">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" name="loginEmail" required>
+                </div>
+                <div class="input-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" name="loginPassword" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" id="showSignUp">Sign Up</a></p>
+            <p id="loginError" class="error-message"></p>
         </div>
 
-        <div id="login-form" class="active">
-            <form>
-                <input type="text" placeholder="Enter email or username" required />
-                <input type="password" placeholder="Enter password" required />
-                <button type="button" class="btn login">Login</button>
-                <p><a href="javascript:void(0)">Forgotten account?</a></p>
-                <hr />
+        <!-- Sign Up Form -->
+        <div class="form-container" id="signUpFormContainer" style="display: none;">
+            <h2>Sign Up</h2>
+            <form id="signUpForm">
+                <div class="input-group">
+                    <label for="signUpEmail">Email</label>
+                    <input type="email" id="signUpEmail" name="signUpEmail" required>
+                </div>
+                <div class="input-group">
+                    <label for="signUpPassword">Password</label>
+                    <input type="password" id="signUpPassword" name="signUpPassword" required>
+                </div>
+                <button type="submit">Sign Up</button>
             </form>
-        </div>
-
-        <div id="signup-form">
-            <form>
-                <input type="email" placeholder="Enter your email" required />
-                <input type="text" placeholder="Choose username" required />
-                <input type="password" placeholder="Create password" required />
-                <button type="button" class="btn signup">Create Account</button>
-                <p>Clicking <strong>create account</strong> means that you agree to our 
-                    <a href="javascript:void(0)">terms of service</a>.
-                </p>
-                <hr />
-            </form>
+            <p>Already have an account? <a href="#" id="showLogin">Login</a></p>
+            <p id="signUpError" class="error-message"></p>
         </div>
     </div>
 
-    <script>
-        function toggleLogin() {
-            document.getElementById('login-form').classList.add('active');
-            document.getElementById('signup-form').classList.remove('active');
-            document.getElementById('login-toggle').classList.add('active');
-            document.getElementById('signup-toggle').classList.remove('active');
-        }
-
-        function toggleSignup() {
-            document.getElementById('signup-form').classList.add('active');
-            document.getElementById('login-form').classList.remove('active');
-            document.getElementById('signup-toggle').classList.add('active');
-            document.getElementById('login-toggle').classList.remove('active');
-        }
-    </script>
-
+    <!-- Firebase and App Scripts -->
+    <script type="module" src="app.js"></script>
 </body>
 </html>
