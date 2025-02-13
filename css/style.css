@@ -3313,3 +3313,24 @@ ol {
         display: none!important;
     }
 }
+
+/* BMI */
+
+.bmi-result {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.2em;
+    border: 1px solid #ddd;
+}
+
+.bmi-result p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.bmi-result strong {
+    color: #28a745; /* Green color for emphasis */
+}
